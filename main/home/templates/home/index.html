@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="login" method="POST">{% csrf_token %}
+        username:<input type="text" name="user_name" id="user_name">
+        password:<input type="password" name="pass" id="pass">
+        <button type="submit">submit</button>
+    </form>
+
+
+    <h1>signup</h1>
+    <form action="signup" method="POST">{% csrf_token %}
+        username:<input type="text" name="user_name" id="user_name">
+        email:<input type="email" name="user_email" id="user_email">
+        password:<input type="password" name="pass" id="pass">
+        password again:<input type="password" name="pass_again" id="pass_again">
+        <button type="submit">submit</button>
+    </form>
+</body>
+</html>
