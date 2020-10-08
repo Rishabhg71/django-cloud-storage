@@ -52,9 +52,20 @@
 
     
     
-    
-    
-    
+    <form action="/files/fileuploading" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input hidden value="{{upload_dir}}{{user_name}}" name="folder">
+      <input type="file" name="file_to_upload" required="" id="id_file_to_upload">
+      <button type="submit">Upload</button>
+    </form>
+
+
+    <form action="/files/makefolder" method="POST">
+      {% csrf_token %}
+      <input hidden value="{{upload_dir}}{{user_name}}" name="folder">
+      <input type="text" name="folder_create_name" required="" id="folder_create_name">
+      <button type="submit">make Folder</button>
+    </form>
     
     
     
@@ -91,6 +102,41 @@
             <td><a href="/media/{{user_name}}/{{i}}">download</a></td>
           </tr>
           {% endfor %}
+
+
+          <!-- Folders here -->
+
+
+
+          {% for i in directory %}
+            <th scope="row">$</th>
+            <td>{{ i }}</td>
+            <td><a href="../index/media/{{user_name}}/{{i}}">Go in Folder</a></td>
+          </tr>
+          {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+          {% for i in directory %}
+            <th scope="row">$</th>
+            <td><form action="/media/{{user_name}}/{{i}}" method="get">
+              <input name="{{i}}" hidden>
+              <Button>{{ i }}</Button>
+            </form></td>
+
+          </tr>
+          {% endfor %} -->
+
+
         </tbody>
       </table>
 

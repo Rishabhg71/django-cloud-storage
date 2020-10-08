@@ -4,4 +4,5 @@ urlpatterns = [
     path('',views.allfiles,name='files'),
     path('fileupload',views.fileupload,name='fileupload'),
     path('fileuploading',views.fileuploading,name='fileuploading'),
+    path('makefolder',views.makefolder,name='makefolder'),
 ]
