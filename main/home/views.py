@@ -7,13 +7,11 @@ from main.settings import MEDIA_ROOT,BASE_DIR
 import os
 
 def index(request):
-    # return render(request,'index.html',params)
     return render(request,'home/index.html')
 
 
 
 def signup(request):
-    # return render(request,'index.html',params)
     user_name = request.POST.get('user_name')
     if ' ' in user_name:
         return HttpResponse('dont use spaces in username')
@@ -36,7 +34,6 @@ def signup(request):
 
 
 def login(request):
-    # return render(request,'index.html',params)
     user_name = request.POST.get('user_name')
     pass_by_user = request.POST.get('pass')
     user = users.objects.get(user_name=user_name)
@@ -73,8 +70,6 @@ def dashboard(request):
             params = {"files":file_list,'user_name':user_name,"directory":directory,"upload_dir":'media/'}    
         except:
             return HttpResponse('something went wrong')
-        
-        # return render(request,'index.html',params)
         return render(request,'home/dashboard.html',params)
     else:
         return HttpResponse('session not set')
@@ -109,8 +104,3 @@ def logout(request):
     return redirect('/index')
 
 
-
-# to add new user 
-
-# user = users(user_name="rishabh",user_password='12345678')
-# user.save()
